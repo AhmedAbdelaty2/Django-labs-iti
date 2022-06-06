@@ -1,0 +1,42 @@
+{% extends 'todo/base.html' %}
+<h1> Welcome To Iti Todo List</h1>
+
+{% block body_content %}
+
+{% if warning_mgs %}
+<div class="alert alert-danger">{{warning_mgs}}</div>
+{% endif %}
+<div class="container text-center bg-dark my-4 border border-secondary">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="text-light">Name</th>
+            <th class="text-light">Describtion</th>
+            <th class="text-light">Priority</th>
+            <th class="text-light">Finished</th>
+            <th class="text-light">Actions</th>
+        </tr>
+    
+        </thead>
+        <tbody>
+        {% for todo,values in my_todos.items %}
+        <tr>
+            <td class="text-light">{{values.name}}</td>
+            <td class="text-light">{{values.description | truncatewords:3}}</td>
+            <td class="text-light">{{values.priority}}</td>
+            <td class="text-light">{{values.is_done}}</td>
+            <td>
+                <a class="btn btn-outline-info mx-1" href="{% url 'todo:detail' todo %}"> Detail View</a>
+                <a class="btn btn-outline-success mx-1" href="{% url 'todo:done' todo %}"> Mark as Done</a>
+                <a class="btn btn-outline-primary mx-1" href="{% url 'todo:edit' todo %}"> Edit</a>
+                <a class="btn btn-outline-danger mx-1" href="{% url 'todo:delete' todo %}"> Delete</a>
+            </td>
+        </tr>
+    
+        {% endfor %}
+    
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

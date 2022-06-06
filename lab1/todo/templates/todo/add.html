@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+{% block body_content %}
+<div class="container text-center">
+    <form action="{% url 'todo:insert'  %}" method="GET">
+        <div class="col-5 my-1 pt-4 align-self-stretch text-center input-group">
+            <span class="input-group-text bg-dark text-light" id="inputGroup-sizing">Key</span>
+            <input name="key" type="text" class="form-control bg-light text-primary">
+        </div>
+        <div class="col-5 my-1 pt-4 align-self-stretch text-center input-group">
+            <span class="input-group-text bg-dark text-light" id="inputGroup-sizing">Name</span>
+            <input name="name" type="text" class="form-control bg-light text-primary">
+        </div>
+        <div class="col-5 my-1 pt-4 align-self-stretch text-center input-group">
+            <span class="input-group-text bg-dark text-light" id="inputGroup-sizing">Describtion</span>
+            <textarea name="description" type="text" class="form-control bg-light text-primary"></textarea>
+        </div>
+        <div class="col-5 my-1 pt-4 align-self-stretch text-center input-group">
+            <span class="input-group-text bg-dark text-light" id="inputGroup-sizing">Priority</span>
+            <input name="priority" type="text" class="form-control bg-light text-primary">
+        </div>
+        <button type="submit" class="btn btn-outline-light mt-5"> Add</button>
+    </form>    
+</div>
+{% endblock %}
