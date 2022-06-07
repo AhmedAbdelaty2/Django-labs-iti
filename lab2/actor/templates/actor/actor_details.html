@@ -1,0 +1,11 @@
+{% extends 'general_templates/base.html'%}
+
+{% block body_content%}
+<div class="container mt-2 text-center text-light">
+    <h1>Name: {{actor_data.name}}</h1>
+    <h3>Age:{{actor_data.age}}</h3>
+    <h3>Nation.:{{actor_data.nationality}}</h3>
+    <h3>Gender: {{actor_data.gender}}</h3>
+</div>
+
+{% endblock%}

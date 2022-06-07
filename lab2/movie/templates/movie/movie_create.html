@@ -1,0 +1,14 @@
+{% extends 'general_templates/base.html'  %}
+{% load static %}
+
+{% block body_content %}
+<div class="container text-light bg-dark my-5">
+    <div class="py-3">
+        <form method="post" action="{% url 'movie:create' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class='btn btn-outline-success' type="submit">Create Movie</button>
+        </form>
+    </div>
+</div>
+{% endblock%}

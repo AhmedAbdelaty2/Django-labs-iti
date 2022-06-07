@@ -1,0 +1,45 @@
+{% extends 'general_templates/base.html'%}
+
+{% block body_content%}
+<div class="container mt-4 text-center">
+<table class="table table-condensed bg-dark text-light my-2">
+    <thead>
+    <tr>
+        <td>Actor Name</td>
+        <td>Actor Gender</td>
+        <td>Actor Age</td>
+        <td>Actor Nationality</td>
+        <td>Actions Nationality</td>
+    </tr>
+    </thead>
+    <tbody>{% for actor in actors %}
+
+
+    <tr>
+        <td> {{actor}}</td>
+        <td>
+            {{actor.gender}}
+        </td>
+        <td>
+            {{actor.age}}
+        </td>
+        <td>
+            {{actor.nationality}}
+        </td>
+
+        <td>
+            <a class='btn btn-outline-primary' href="{% url 'actor:update' actor.id%}"> Update</a>
+            <a class='btn btn-outline-danger' href="{% url 'actor:delete' actor.id %}">Delete </a>
+            <a class='btn btn-outline-info' href="{% url 'actor:detail' actor.id%}"> Details</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+<a class="btn btn-success" href="{% url 'actor:create'%}"> Create Actor</a>
+</div>
+
+
+{%endblock%}

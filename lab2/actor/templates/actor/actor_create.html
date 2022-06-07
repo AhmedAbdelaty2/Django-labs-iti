@@ -1,0 +1,16 @@
+{% extends 'general_templates/base.html'%}
+
+{% block body_content%}
+<div class="container text-center text-light bg-dark my-4">
+    <div class="py-4">
+        <form action="{% url 'actor:create'%}" method="POST">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <button class="btn btn-outline-success" type="submit">Create</button>
+
+        </form>
+    <div>
+</div>
+{%endblock%}

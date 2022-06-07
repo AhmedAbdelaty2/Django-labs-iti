@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title%} {% endblock%}</title>
+    <link href="{% static 'generic_static/css/bootstrap.min.css' %}" rel="stylesheet">
+<style>
+    body{
+        background-color: #171717;
+    }
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="{% url 'actor:list'%}">Lab2</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'actor:list'%}">Actors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'movie:list'%}">Movies</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+{% block body_content %}
+<h1> Default body block please override</h1>
+{% endblock %}
+
+<script src="{% static 'generic_static/js/bootstrap.bundle.min.js'%}"></script>
+
+</body>
+
+</html>

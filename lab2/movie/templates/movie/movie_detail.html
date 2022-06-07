@@ -1,0 +1,21 @@
+{% extends 'general_templates/base.html' %}
+
+{% block body_content %}
+
+<div class="container bg-dark text-light my-4">
+    <div class="py-4">
+        <div class="text-center">
+            <img width="25%" src="{{request.scheme}}://{{request.get_host}}{{movie.thumbnail.url}}">
+        </div>
+        <div class="text-center my-2">
+            <h1>{{movie.name}}</h1>
+        </div>
+        <h3 class="mx-4">View Count: {{movie.watch_count}}</h3>
+        <h2 class="mx-4 mt-5">Actors</h2>
+        {% for actor in actors %}
+            <p class="mx-4 mb-1 inline">{{actor.name}}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
